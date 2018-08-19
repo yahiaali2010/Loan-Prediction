@@ -1,12 +1,3 @@
-### Using Logistic Regression to determine if a customer is likley, 
-#or not, to accept an offer of a bank loan.
-### Logistic Regression is very useful in determining the value of a binary variable
-#(0/1, yes/no, approve/not approve, fraud/valid)
-### We will load in 5000 records showing information on bank customers 
-#to build a model that we can then apply to new data sets
-### We can validat our model using histograms but there are many other
-#ways to validate the mode.
-
 ### In this case we have training and validation data that show 
 #which customers accepted the loan offer and which ones did not.
 ### We will look at some of the variables for each customer and 
@@ -24,8 +15,10 @@ View(bank.df)
 # Drop ID and zip code columns.
 bank.df <- bank.df[ , -c(1, 5)] 
 
+# check for missing data
+missmap(bks.df, col=c("blue", "red"), legend=FALSE,  width=6, height=4)
 
-# treat Education as categorical (create labels)
+#treat Education as categorical (create labels)
 bank.df$Education <- factor(bank.df$Education, levels = c(1, 2, 3), 
                             labels = c("Undergrad", "Graduate", "Advanced/Professional"))
 
